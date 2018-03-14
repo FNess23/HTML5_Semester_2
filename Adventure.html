@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>The Murder of Susan Bethwick</title>
+    </head>
+    <body>
+        <h1>The Murder of Susan Bethwick v1.0</h1>
+        <p>Made By: Zigmond Pando</p>
+        <script>
+            // Inventory System
+            var inventory = {
+                gun:0,
+                ammo:0,
+                knife:0,
+                bulletcasing:0,
+                wallet:0,
+                armor:0,
+                
+            }
+            // How to grab object
+            // prompt
+            // if
+            // inventory.gun ++1
+            // alert("gun = "+inventory.gun);
+            
+            
+            /*var invList = function(){
+                alert("Coins = "+ inventory.wallet + 
+                      "\nBullet Casing = "+ inventory.bulletcasing);
+            }*/
+            
+            
+            
+            
+            
+            Start();
+            
+            function Start(){
+            
+                var playerName = prompt("What is your name detective?");
+                
+                alert("Welcome to the wonderful state of Masachussetts Detective " + playerName);
+                
+                var startGame = confirm(playerName + " Are you ready to get started today? We got a long day ahead of us... There was a murder last night...");
+                
+                    if(startGame){
+                        PoliceStation();
+                    }
+                    else{
+                        alert("Goodbye... But leave 5 stars.");
+                    }
+                
+                
+            }
+            
+           function PoliceStation(){
+                var policestation = prompt("You just got to work. There is the disbatch, commisioner, jail room, armory, and your desk").toLowerCase();
+                var armory = function (){
+                    var armorypurchase = prompt("Welcome to the armory, this is where you can get all of your gear. Says the officer standing inside the concrete room full of weapons and quipment for the entire police force. Written here it says that you are going to need a \n gun \n ammo \n chest plate. Which of these would you like first? or would you like to return to the policestation?");
+                         if (armorypurchase == "gun"){
+                             inventory.gun++;
+                             alert("You now have a gun");
+                             armory();
+                         }
+                         else if (armorypurchase == "ammo"){
+                             inventory.ammo = inventory.ammo+20;
+                             alert("You have taken 20 bullets.");
+                             armory();
+                         }
+                         else if (armorypurchase == "chest plate" || armory == "vest" && inventory.armor < 100){
+                             inventory.armor = 100;
+                             alert("You have equipped a chest plate.");
+                             armory();
+                         }
+                         else if (armorypurchase == "chestplate" || armory == "vest" && inventory.armor >= 100){
+                             alert("You already have a chest plate, you do not need another.")
+                             armory();
+                         }
+                }
+                switch(policestation){
+                        
+                    case "disbatch":
+                        alert("When you approach Nancy, The Disbatch Worker, says 'Hey, there was an awful murder last night, they couldn't even identify the body. Also the commisioner was looking for you, I think he wants you to get on this case.'");
+                        PoliceStation();
+                    break;
+                    case "commisioner":
+                        alert("Approaching the door to his office, You see the wooden door with a tinted glass window that has white lettering across it reading 'Commisioners Office'. You open the door and walk in to see the Commisioner filling out a document about the murder with pictures of the victim attached to it. You sit down and he tells you detective, I need you to get on this case, it is very gruesome and the people are asking many questions. We don't have any leads for you so it is going to be difficult. But if anyone here can do it, I'm sure you can detective.' You pick up the document and photos and leave the room");
+                        PoliceStation();
+                    break;
+                    case "armory":
+                        armory();
+                        PoliceStation();
+                       /* var armorypurchase = prompt("Welcome to the armory, this is where you can get all of your gear. Says the officer standing inside the concrete room full of weapons and quipment for the entire police force. Written here it says that you are going to need a \n gun \n ammo \n chest plate. Which of these would you like first?");
+                         if (armorypurchase == "gun"){
+                             inventory.gun++;
+                             alert("You now have a gun");
+                             armory();
+                         }
+                         else if (armorypurchase == "ammo"){
+                             inventory.ammo = inventory.ammo+20;
+                             alert("You have taken 20 bullets.");
+                             armory();
+                         }
+                         else if (armorypurchase == "chest plate" || armory == "vest" && inventory.armor < 100){
+                             inventory.armor = 100;
+                             alert("You have equipped a chest plate.");
+                             armory();
+                         }
+                         else if (armorypurchase == "chestplate" || armory == "vest" && inventory.armor >= 100){
+                             alert("You already have a chest plate, you do not need another.")
+                             armory();
+                         }*/
+                    break;
+                    /*case "inventory":
+                        invList():
+                        PoliceStation():
+                    break;*/
+                    default:
+                        alert("I do not understand " + PoliceStation + " try again.");
+                        PoliceStation();
+                    break;
+                        
+                                    }
+            }
+            
+        </script>
+    </body>
+</html>
